@@ -61,7 +61,7 @@ pipeline {
 
          stage('Pausing') {
             steps {
-                sleep(time: 2, unit: 'MINUTES')
+                sleep(time: 1, unit: 'MINUTES')
             }
         }
         
@@ -81,6 +81,7 @@ pipeline {
                 success {
                     archiveArtifacts "${env.BUILD_ID}/sources/dist/add2vals" 
                     sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
+                    sleep(time: 1, unit: 'MINUTES')
                 }
             }
         }
