@@ -58,6 +58,13 @@ pipeline {
                 }
             }
         }
+
+         stage('Pausing') {
+            steps {
+                sleep(time: 2, unit: 'MINUTES')
+            }
+        }
+        
         stage('Deliver') { 
             agent any
             environment { 
